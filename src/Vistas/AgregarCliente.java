@@ -153,7 +153,7 @@ public class AgregarCliente extends javax.swing.JFrame {
             Conexion cn = new Conexion();
             Connection cnx = cn.conexion();
 
-            String query = "INSERT INTO cliente (rut_ciente,dv_rut, nombre, ap_paterno, ap_materno, telefono, correo)VALUES(?,?,?,?,?,?,?)";
+            String query = "INSERT INTO cliente (rut_cliente,dv_rut, nombre, ap_paterno, ap_materno, telefono, correo)VALUES(?,?,?,?,?,?,?)";
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, jtxt_rut.getText());
             stmt.setString(2, jtxt_dvrut.getText());
@@ -163,7 +163,7 @@ public class AgregarCliente extends javax.swing.JFrame {
             stmt.setString(6, jtxt_telefono.getText());
             stmt.setString(7, jtxt_correo.getText());
             
-            JOptionPane.showMessageDialog(this, "Usuario Agregado Existosamente","aviso",1);
+            JOptionPane.showMessageDialog(this, "Cliente Agregado Existosamente","aviso",1);
 
             stmt.executeUpdate();
             stmt.close();
