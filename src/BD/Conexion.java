@@ -14,19 +14,18 @@ import java.sql.SQLException;
  * @author tu_jo
  */
 public class Conexion {
-    
-    public Connection obtenerConexion(){
-        Connection cn = null;
-        
+
+    Connection cn = null;
+
+    public Connection obtenerConexion() {
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/videojuegos","root","");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/videojuegos", "root", "");
             System.out.println("Conexion exitosa");
         } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("Error de Clase conexion" +e.getMessage());
-            
-            
-            
+            System.out.println("Error de Clase conexion" + e.getMessage());
+
         }
         return cn;
     }

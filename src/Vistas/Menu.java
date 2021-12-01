@@ -57,6 +57,11 @@ public class Menu extends javax.swing.JFrame {
         jMenu4.add(jMenuItem2);
 
         jMenuItem3.setText("Buscar Cliente");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem3);
 
         jMenu1.add(jMenu4);
@@ -123,20 +128,27 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-        
+
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         int salir = 0;
-        if (salir == 0 || salir != 0) {
-            JOptionPane.showConfirmDialog(this, "Desea Salir","si/no",0);
-                 System.exit(0);   
-            
+
+        if (salir == 0) {
+            JOptionPane.showConfirmDialog(null, "Desea Salir", "advertencia", 0);
+            System.exit(0);
+
+        } else {
+
         }
-        
-    
-        
+
+
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        new BuscarCliente().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -64,6 +64,8 @@ public class AgregarCliente extends javax.swing.JFrame {
 
         jLabel6.setText("Correo");
 
+        jtxt_rut.setMaximumSize(new java.awt.Dimension(8, 8));
+
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setText("-");
 
@@ -102,7 +104,7 @@ public class AgregarCliente extends javax.swing.JFrame {
                             .addComponent(jtxt_apmaterno, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtxt_appaterno, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtxt_nombre, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtxt_rut, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxt_rut, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jtxt_correo, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,12 +169,12 @@ public class AgregarCliente extends javax.swing.JFrame {
 
             String query = "INSERT INTO cliente (rut_cliente,dv_rut, nombre, ap_paterno, ap_materno, telefono, correo)VALUES(?,?,?,?,?,?,?)";
             PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setString(1, jtxt_rut.getText());
+            stmt.setInt(1, Integer.parseInt(jtxt_rut.getText()));
             stmt.setString(2, jtxt_dvrut.getText());
             stmt.setString(3, jtxt_nombre.getText());
             stmt.setString(4, jtxt_appaterno.getText());
             stmt.setString(5, jtxt_apmaterno.getText());
-            stmt.setString(6, jtxt_telefono.getText());
+            stmt.setInt(6, Integer.parseInt(jtxt_telefono.getText()));
             stmt.setString(7, jtxt_correo.getText());
             
             

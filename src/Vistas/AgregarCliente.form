@@ -146,6 +146,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtxt_rut">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[8, 8]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtxt_dvrut">
     </Component>
