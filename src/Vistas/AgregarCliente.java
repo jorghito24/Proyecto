@@ -5,6 +5,7 @@
 package Vistas;
 
 import Conexion.Conexion;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -65,6 +66,22 @@ public class AgregarCliente extends javax.swing.JFrame {
         jLabel6.setText("Correo");
 
         jtxt_rut.setMaximumSize(new java.awt.Dimension(8, 8));
+        jtxt_rut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_rutActionPerformed(evt);
+            }
+        });
+        jtxt_rut.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxt_rutKeyTyped(evt);
+            }
+        });
+
+        jtxt_dvrut.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxt_dvrutKeyTyped(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setText("-");
@@ -177,7 +194,13 @@ public class AgregarCliente extends javax.swing.JFrame {
             stmt.setInt(6, Integer.parseInt(jtxt_telefono.getText()));
             stmt.setString(7, jtxt_correo.getText());
             
-            
+            jtxt_rut.setText("");
+            jtxt_dvrut.setText("");
+            jtxt_nombre.setText("");
+            jtxt_appaterno.setText("");
+            jtxt_apmaterno.setText("");
+            jtxt_telefono.setText("");
+            jtxt_correo.setText("");
             
             JOptionPane.showMessageDialog(this, "Cliente Agregado Existosamente","aviso",1);
 
@@ -188,7 +211,7 @@ public class AgregarCliente extends javax.swing.JFrame {
            
 
         } catch (SQLException e) {
-            System.out.println("Error en SQL al agregar cliente - Clase Cliente" + e.getMessage());
+            System.out.println("Error en SQL al agregar cliente " + e.getMessage());
            
         }
     }//GEN-LAST:event_jbtn_guardarActionPerformed
@@ -197,6 +220,27 @@ public class AgregarCliente extends javax.swing.JFrame {
         new Menu().setVisible(true);
         dispose();
     }//GEN-LAST:event_jbtn_volverActionPerformed
+
+    private void jtxt_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_rutActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_jtxt_rutActionPerformed
+
+    private void jtxt_rutKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_rutKeyTyped
+        if (jtxt_rut.getText().length() >= 8) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_jtxt_rutKeyTyped
+
+    private void jtxt_dvrutKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_dvrutKeyTyped
+        if (jtxt_dvrut.getText().length() >= 1) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            
+        }
+    }//GEN-LAST:event_jtxt_dvrutKeyTyped
 
     /**
      * @param args the command line arguments

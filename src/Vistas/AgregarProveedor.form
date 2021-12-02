@@ -155,6 +155,10 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtxt_rut">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtxt_rutActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtxt_rutKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtxt_nombre">
     </Component>
@@ -175,6 +179,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtxt_dv">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtxt_dvKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbtn_volver">
       <Properties>

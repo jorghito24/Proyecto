@@ -132,15 +132,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        int salir = 0;
-
-        if (salir == 0) {
-            JOptionPane.showConfirmDialog(null, "Desea Salir", "advertencia", 0);
-            System.exit(0);
-
-        } else {
-
-        }
+        
+        System.exit(0);
 
 
     }//GEN-LAST:event_jMenuItem6ActionPerformed

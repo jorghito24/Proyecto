@@ -5,6 +5,7 @@
 package Vistas;
 
 import Conexion.Conexion;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -70,8 +71,25 @@ public class AgregarProveedor extends javax.swing.JFrame {
             }
         });
 
+        jtxt_rut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_rutActionPerformed(evt);
+            }
+        });
+        jtxt_rut.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxt_rutKeyTyped(evt);
+            }
+        });
+
         jLabel7.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel7.setText("-");
+
+        jtxt_dv.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxt_dvKeyTyped(evt);
+            }
+        });
 
         jbtn_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/volver.png"))); // NOI18N
         jbtn_volver.addActionListener(new java.awt.event.ActionListener() {
@@ -160,18 +178,27 @@ public class AgregarProveedor extends javax.swing.JFrame {
 
     private void jbtn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_guardarActionPerformed
          try {
+             
             Conexion cn = new Conexion();
             Connection cnx = cn.conexion();
 
             String query = "INSERT INTO proveedor (rut_proveedor,dv_rut, nombre_proveedor, ap_paterno, ap_materno, telefono, correo)VALUES(?,?,?,?,?,?,?)";
             PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setInt(1, jtxt_rut.getX());
+            stmt.setInt(1, Integer.parseInt(jtxt_rut.getText()));
             stmt.setString(2, jtxt_dv.getText());
             stmt.setString(3, jtxt_nombre.getText());
             stmt.setString(4, jtxt_appaterno.getText());
             stmt.setString(5, jtxt_apmaterno.getText());
-            stmt.setInt(6, jtxt_telefono.getX());
+            stmt.setInt(6, Integer.parseInt(jtxt_telefono.getText()));
             stmt.setString(7, jtxt_correo.getText());
+            
+            jtxt_rut.setText("");
+            jtxt_dv.setText("");
+            jtxt_nombre.setText("");
+            jtxt_appaterno.setText("");
+            jtxt_apmaterno.setText("");
+            jtxt_telefono.setText("");
+            jtxt_correo.setText("");
             
             JOptionPane.showMessageDialog(this, "Proveedor Agregado Existosamente","aviso",1);
 
@@ -182,7 +209,7 @@ public class AgregarProveedor extends javax.swing.JFrame {
            
 
         } catch (SQLException e) {
-            System.out.println("Error en SQL al agregar cliente - Clase Cliente" + e.getMessage());
+            JOptionPane.showMessageDialog(this, "Error Al Agregar al Proveedor","advertencia",1);
            
         }
     }//GEN-LAST:event_jbtn_guardarActionPerformed
@@ -191,6 +218,25 @@ public class AgregarProveedor extends javax.swing.JFrame {
         new Menu().setVisible(true);
         dispose();
     }//GEN-LAST:event_jbtn_volverActionPerformed
+
+    private void jtxt_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_rutActionPerformed
+        
+    }//GEN-LAST:event_jtxt_rutActionPerformed
+
+    private void jtxt_rutKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_rutKeyTyped
+        if (jtxt_rut.getText().length() >= 8) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_jtxt_rutKeyTyped
+
+    private void jtxt_dvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_dvKeyTyped
+        if (jtxt_dv.getText().length() >= 1) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            
+        }
+    }//GEN-LAST:event_jtxt_dvKeyTyped
 
     /**
      * @param args the command line arguments
