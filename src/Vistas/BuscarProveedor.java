@@ -5,7 +5,7 @@
 
 package Vistas;
 
-import Conexion.Conexion;
+import BD.Conexion;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -150,7 +150,7 @@ public class BuscarProveedor extends javax.swing.JFrame {
 
         try {
             Conexion cn = new Conexion();
-            Connection cnx = cn.conexion();
+            Connection cnx = cn.obtenerConexion();
             String[] datos = new String[7];
 
             DefaultTableModel modelo = new DefaultTableModel();
@@ -198,7 +198,7 @@ public class BuscarProveedor extends javax.swing.JFrame {
         try {
 
             Conexion con = new Conexion();
-            Connection cnx = con.conexion();
+            Connection cnx = con.obtenerConexion();
 
             String query = "DELETE FROM proveedor WHERE rut_proveedor=? and dv_rut=?";
             PreparedStatement stmt = cnx.prepareStatement(query);

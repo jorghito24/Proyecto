@@ -4,7 +4,7 @@
  */
 package Vistas;
 
-import Conexion.Conexion;
+import BD.Conexion;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -180,7 +180,7 @@ public class AgregarProveedor extends javax.swing.JFrame {
          try {
              
             Conexion cn = new Conexion();
-            Connection cnx = cn.conexion();
+            Connection cnx = cn.obtenerConexion();
 
             String query = "INSERT INTO proveedor (rut_proveedor,dv_rut, nombre_proveedor, ap_paterno, ap_materno, telefono, correo)VALUES(?,?,?,?,?,?,?)";
             PreparedStatement stmt = cnx.prepareStatement(query);

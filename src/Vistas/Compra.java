@@ -4,7 +4,7 @@
  */
 package Vistas;
 
-import Conexion.Conexion;
+import BD.Conexion;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -293,7 +293,7 @@ public class Compra extends javax.swing.JFrame {
         try {
 
             Conexion cn = new Conexion();
-            Connection cnx = cn.conexion();
+            Connection cnx = cn.obtenerConexion();
 
             String query = "INSERT INTO compra (rut_proveedor,dv_rut, nombre_producto, plataforma, fecha, cantidad, precio,total)VALUES(?,?,?,?,?,?,?,?)";
             PreparedStatement stmt = cnx.prepareStatement(query);
@@ -338,7 +338,7 @@ public class Compra extends javax.swing.JFrame {
         
         try {
             Conexion cn = new Conexion();
-            Connection cnx = cn.conexion();
+            Connection cnx = cn.obtenerConexion();
             String[] datos = new String[9];
 
             DefaultTableModel modelo = new DefaultTableModel();
@@ -389,7 +389,7 @@ public class Compra extends javax.swing.JFrame {
         try {
 
             Conexion con = new Conexion();
-            Connection cnx = con.conexion();
+            Connection cnx = con.obtenerConexion();
 
             String query = "DELETE FROM compra WHERE cod_compra=?";
             PreparedStatement stmt = cnx.prepareStatement(query);

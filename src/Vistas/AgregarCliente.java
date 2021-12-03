@@ -4,7 +4,7 @@
  */
 package Vistas;
 
-import Conexion.Conexion;
+import BD.Conexion;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -182,7 +182,7 @@ public class AgregarCliente extends javax.swing.JFrame {
         
         try {
             Conexion cn = new Conexion();
-            Connection cnx = cn.conexion();
+            Connection cnx = cn.obtenerConexion();
 
             String query = "INSERT INTO cliente (rut_cliente,dv_rut, nombre, ap_paterno, ap_materno, telefono, correo)VALUES(?,?,?,?,?,?,?)";
             PreparedStatement stmt = cnx.prepareStatement(query);

@@ -4,7 +4,7 @@
  */
 package Vistas;
 
-import Conexion.Conexion;
+import BD.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -146,7 +146,7 @@ public class BuscarCliente extends javax.swing.JFrame {
 
         try {
             Conexion cn = new Conexion();
-            Connection cnx = cn.conexion();
+            Connection cnx = cn.obtenerConexion();
             String[] datos = new String[7];
 
             DefaultTableModel modelo = new DefaultTableModel();
@@ -200,7 +200,7 @@ public class BuscarCliente extends javax.swing.JFrame {
         try {
 
             Conexion con = new Conexion();
-            Connection cnx = con.conexion();
+            Connection cnx = con.obtenerConexion();
 
             String query = "DELETE FROM cliente WHERE rut_cliente=? and dv_rut=?";
             PreparedStatement stmt = cnx.prepareStatement(query);
